@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link href="index.css" rel="stylesheet">
+	<title>Let's Rock!</title>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var div = document.getElementById(data),
+    	clone = div.cloneNode(true);
+    clone.id = div.id;
+    switch (clone.id) {
+    	case 'add':
+    		ev.target.appendChild(clone);
+    		var b1 = document.createElement("DIV");
+    		b1.className = "button2";
+    		var b2 = document.createElement("DIV");
+    		b2.className = "button2";
+    		ev.target.appendChild(b1);
+    		ev.target.appendChild(b2);
+    		break;
+    	case 'sub':
+    		ev.target.appendChild(clone);
+    		var b1 = document.createElement("DIV");
+    		b1.className = "button2";
+    		var b2 = document.createElement("DIV");
+    		b2.className = "button2";
+    		ev.target.appendChild(b1);
+    		ev.target.appendChild(b2);
+    		break;
+    	case 'foo':
+    		ev.target.appendChild(clone);
+    		var b1 = document.createElement("DIV");
+    		b1.className = "button2";
+    		var b2 = document.createElement("DIV");
+    		b2.className = "button2";
+    		var b3 = document.createElement("DIV");
+    		b3.className = "button2";
+    		ev.target.appendChild(b1);
+    		ev.target.appendChild(b2);
+    		ev.target.appendChild(b3);
+    		break;
+    	case 'dosome':
+    		ev.target.appendChild(clone);
+    		var b1 = document.createElement("DIV");
+    		b1.className = "button2";
+    		ev.target.appendChild(b1);
+    		break;
+    }
+}
+</script>
+</head>
+<body>
+	<div class="body0">
+		<div class="body1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	</div>
+	<div class="body2">
+		<div class="body3">
+			<div id="add" class="button1" draggable="true" ondragstart="drag(event)">add</div>
+			<div id="sub" class="button1" draggable="true" ondragstart="drag(event)">subtract</div>
+			<div id="foo" class="button1" draggable="true" ondragstart="drag(event)">foo</div>
+			<div id="dosome" class="button1" draggable="true" ondragstart="drag(event)">doSomethingComplicated</div>
+		</div>
+	</div>
+
+</body>
+</html>
